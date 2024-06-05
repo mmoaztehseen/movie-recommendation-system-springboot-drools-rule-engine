@@ -1,0 +1,52 @@
+package com.recommendation.movie.rules;
+
+import com.recommendation.movie.model.User;
+import com.recommendation.movie.model.Movie;
+
+global java.util.HashSet<Movie> movies;
+
+rule "Recommend Action Movies"
+when
+    $user: User(favoriteGenres contains "Action")
+then
+    movies.add(new Movie(1, "The Dark Knight", "Action", "A gritty and intense action-packed adventure featuring Batman.", 9.0, "Christopher Nolan", 2008));
+    movies.add(new Movie(2, "Mad Max: Fury Road", "Action", "In a post-apocalyptic wasteland, Max teams up with Furiosa to escape a tyrant.", 8.1, "George Miller", 2015));
+    movies.add(new Movie(3, "John Wick", "Action", "An ex-hitman comes out of retirement to track down the gangsters that killed his dog and took everything from him.", 7.4, "Chad Stahelski", 2014));
+end
+
+rule "Recommend Comedy Movies"
+when
+    $user: User(favoriteGenres contains "Comedy")
+then
+    movies.add(new Movie(4, "Superbad", "Comedy", "Two co-dependent high school seniors are forced to deal with separation anxiety.", 7.6, "Greg Mottola", 2007));
+    movies.add(new Movie(5, "The Hangover", "Comedy", "Three friends wake up from a bachelor party in Las Vegas, with no memory of the previous night.", 7.7, "Todd Phillips", 2009));
+end
+
+rule "Recommend Drama Movies"
+when
+    $user: User(favoriteGenres contains "Drama")
+then
+    movies.add(new Movie(6, "The Shawshank Redemption", "Drama", "Two imprisoned men bond over a number of years, finding solace and eventual redemption.", 9.3, "Frank Darabont", 1994));
+    movies.add(new Movie(7, "Forrest Gump", "Drama", "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold through the perspective of an Alabama man with an IQ of 75.", 8.8, "Robert Zemeckis", 1994));
+end
+
+rule "Recommend Horror Movies"
+when
+    $user: User(favoriteGenres contains "Horror")
+then
+    movies.add(new Movie(8, "The Conjuring", "Horror", "Paranormal investigators work to help a family terrorized by a dark presence.", 7.5, "James Wan", 2013));
+end
+
+rule "Recommend Sci-Fi Movies"
+when
+    $user: User(favoriteGenres contains "Sci-Fi")
+then
+    movies.add(new Movie(9, "Inception", "Sci-Fi", "A thief who steals corporate secrets through the use of dream-sharing technology.", 8.8, "Christopher Nolan", 2010));
+end
+
+rule "Recommend Romance Movies"
+when
+    $user: User(favoriteGenres contains "Romance")
+then
+    movies.add(new Movie(9, "The Notebook", "Romance", "A poor yet passionate young man falls in love with a rich young woman.", 7.8, "Nick Cassavetes", 2004));
+end
