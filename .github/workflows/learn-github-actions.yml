@@ -14,8 +14,10 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'adopt'
+          distribution: 'temurin'  # Use 'temurin' as 'adopt' is deprecated
           java-version: '17'
+          cache: 'maven'
+          check-latest: true
 
       - name: Install Maven
         run: sudo apt-get install maven -y
