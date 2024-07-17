@@ -23,4 +23,5 @@ jobs:
         run: sudo apt-get install maven -y
 
       - name: Print Spring Boot version
-        run: mvn dependency:list | grep spring-boot
+        run: |
+          mvn dependency:list | grep spring-boot || echo "No Spring Boot dependencies found"
