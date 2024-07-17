@@ -37,7 +37,8 @@ mvn spring-boot:run
 
 ## Access the endpoint
 
-The API will be available at [http://localhost:8080/api/recommendations](http://localhost:8080/api/recommendations). You can use tools like Postman to interact with the endpoints.
+The API will be available at [http://localhost:8080/api/recommendations](http://localhost:8080/api/recommendations). 
+You can use tools like Postman to interact with the endpoints.
 
 ## **POST (/api/recommendations)**:
 
