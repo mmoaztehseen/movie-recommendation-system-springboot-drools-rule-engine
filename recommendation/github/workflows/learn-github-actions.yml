@@ -1,0 +1,22 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on: [push]
+
+jobs:
+  print-spring-boot-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Install Maven
+        run: sudo apt-get install maven -y
+
+      - name: Print Spring Boot version
+        run: mvn dependency:list | grep spring-boot
