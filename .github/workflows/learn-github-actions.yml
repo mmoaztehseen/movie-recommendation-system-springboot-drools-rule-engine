@@ -25,4 +25,4 @@ jobs:
       - name: Change to project directory and print Spring Boot version
         run: |
           cd recommendation
-          mvn dependency:list | grep spring-boot || echo "No Spring Boot dependencies found"
+          mvn dependency:list | grep 'org.springframework.boot:spring-boot' | awk -F':' '{print "Spring Boot version is " $4}'
