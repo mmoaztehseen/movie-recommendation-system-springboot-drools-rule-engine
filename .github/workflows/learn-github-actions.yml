@@ -14,13 +14,16 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'  # Use 'temurin' as 'adopt' is deprecated
+          distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
           check-latest: true
 
       - name: Install Maven
         run: sudo apt-get install maven -y
+
+      - name: Print full dependency list
+        run: mvn dependency:list
 
       - name: Print Spring Boot version
         run: |
