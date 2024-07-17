@@ -2,7 +2,7 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 
 on: 
-  push:
+  pull_request:
     branches: ["main"]
 
 jobs:
@@ -25,4 +25,5 @@ jobs:
       - name: Change to project directory and print Spring Boot version
         run: |
           cd recommendation
+          mvn clean install
           mvn dependency:list | grep 'org.springframework.boot:spring-boot' | awk -F':' '{print "Spring Boot version is " $4}'
