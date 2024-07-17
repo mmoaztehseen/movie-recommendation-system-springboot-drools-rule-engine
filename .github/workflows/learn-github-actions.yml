@@ -23,4 +23,4 @@ jobs:
         run: sudo apt-get install maven -y
 
       - name: Change to project directory
-        run: cd path/to/your/project && mvn dependency:list | grep spring-boot || echo "No Spring Boot dependencies found"
+        run: cd /recommendation && mvn dependency:list | grep spring-boot || echo "No Spring Boot dependencies found"
